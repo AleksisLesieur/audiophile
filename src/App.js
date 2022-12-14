@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar.js";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -17,7 +19,13 @@ function App() {
     <div key={index.id}>{item.description}</div>
   ));
 
-  return <div>{productItems}</div>;
+  return (
+    <div>
+      <div>{productItems}</div>
+      <Navbar />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;

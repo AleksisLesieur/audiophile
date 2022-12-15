@@ -4,6 +4,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+At first, you need to install JSON Server
+
+### `npm install -g json-server`
+
+Afterwards, you need to run it
+
+### `npx json-server --watch .\starter-code\tch .\starter-code\data.json --port 8000`
+
+This is going to run the data.json file on the localhost:8000 to simulate as a backend API server,
+THIS IS IMPORTANT THAT YOU RUN IT, OTHERWISE THE WEBSITE WILL NOT LOAD!
+
 In the project directory, you can run:
 
 ### `npm start`

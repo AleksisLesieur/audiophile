@@ -1,22 +1,24 @@
-import "./Navbar.css";
+import styles from "./Navbar.module.css";
 import { ReactComponent as Cart } from "../../icons/Cart.svg";
 
 export default function Navbar() {
   return (
     <nav>
-      <div className="container">
-        <div className="navbar">
-          <div>
-            <h2>audiophile</h2>
+      <div className={styles.container}>
+        <div className={styles.navbar}>
+          <div className={styles.flex}>
+            <div className={styles.burgerMenu}>|||</div>
+            <h2 className={styles.title}>audiophile</h2>
+            <Cart className={styles.cartForMobile} />
           </div>
-          <div className="listItems">
+          <div className={styles.listItems}>
             <div>home</div>
             <div>headphones</div>
             <div>speakers</div>
             <div>earphones</div>
           </div>
           <div>
-            <Cart />
+            <Cart className={styles.cartForDesktop} />
           </div>
         </div>
         <hr></hr>

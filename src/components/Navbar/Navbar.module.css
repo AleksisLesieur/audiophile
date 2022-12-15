@@ -1,0 +1,81 @@
+nav {
+    color: white;
+    background-color: black;
+    min-height: 76px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%; 
+    max-width: 1810px;
+}
+
+.listItems {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-top: 12px; */
+    gap: 2em;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 25px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 0 32px 0;
+}
+
+.title {
+    padding-top: 10px;
+}
+
+.flex {
+    display: flex;
+}
+
+hr {
+    color: #979797;
+    opacity: 0.2;
+}
+
+.burgerMenu {
+    display: none;
+}
+
+.cartForMobile {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .listItems {
+        display: none;
+    }
+    .burgerMenu {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 25px;
+        cursor: pointer;
+        transform: rotate(90deg);
+        margin: -3px 60px 0 -20px;
+    }
+}
+ @media only screen and (max-width: 600px) {
+    .cartForDesktop {
+        display: none;
+    }
+    .cartForMobile {
+        display: inline-block;
+        margin-top: 22px; 
+    }
+    .flex {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

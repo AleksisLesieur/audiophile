@@ -1,0 +1,107 @@
+footer {
+  color: white;
+  background-color: black;
+  min-height: 365px;
+  padding: 75px 0 48px 0;
+}
+
+footer .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+footer .flex h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+footer .flex .navItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 11px;
+  gap: 2em;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  list-style-type: none;
+}
+
+footer .flex .navItems li:hover {
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+footer .socialMediaIcons {
+  padding: 36px 0 56px 0;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+section, .copyright {
+  max-width: 540px;
+  height: 100px;
+  line-height: 25px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.copyright {
+  font-weight: 700;
+}
+
+@media only screen and (min-width: 768px) {
+  .shownOnMobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .shownOnMobile {
+    display: block;
+    margin-top: 40px;
+  }
+  .shownOnDesktop {
+    display: none;
+  }
+  .copyright {
+    padding-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  footer {
+    padding: 50px 0 !important;
+  }
+  .flex, .navItems {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+  .copyright {
+    padding-top: 60px;
+  }
+}
+/*# sourceMappingURL=Footer.module.css.map */

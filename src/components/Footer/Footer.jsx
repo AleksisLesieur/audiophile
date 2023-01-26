@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="container">
-        <div className={`${styles.flex} ${styles.center}`}>
+        <div className={`${styles.flex}`}>
           <h2>audiophile</h2>
 
           <ul className={styles.navItems}>
@@ -18,7 +18,7 @@ export default function Footer() {
             <li>earphones</li>
           </ul>
         </div>
-        <div className={`${styles.flex} ${styles.base}`}>
+        <div className={`${styles.flex} ${styles.socialMediaIcons}`}>
           <section>
             Audiophile is an all in one stop to fulfill your audio needs. We're
             a small team of music lovers and sound specialists who are devoted
@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
         <div className={styles.flex}>
           <div className={styles.copyright}>
-            Copyright 2021. All Rights Reserved
+            Copyright 2023. All Rights Reserved
           </div>
           <div className={`${styles.icon} ${styles.shownOnMobile}`}>
             <Facebook />

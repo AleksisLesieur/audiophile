@@ -1,10 +1,12 @@
 import styles from "./Navbar.module.scss";
 import { ReactComponent as Cart } from "../../icons/Cart.svg";
+import { ReactComponent as MainLogo } from "../../icons/MainLogo.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import '../../index.css'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
-  console.log(isMenuOpen);
 
   return (
     <nav className={styles.nav}>
@@ -18,11 +20,13 @@ export default function Navbar() {
             // }}
           >
             <div className={styles["nav-icon"]}>
+              {/* animating the burger menu */}
               <span
                 style={{
                   transform: isMenuOpen ? "rotate(45deg)" : "rotate(0deg)",
-                  top: isMenuOpen ? "0px" : "0",
-                  left: isMenuOpen ? "2px" : "0",
+                  top: isMenuOpen ? "-1.4px" : "0",
+                  width: isMenuOpen ? '37px' : '30px',
+                  left: isMenuOpen ? "0.7px" : "0",
                 }}
               ></span>
               <span
@@ -34,29 +38,38 @@ export default function Navbar() {
               <span
                 style={{
                   transform: isMenuOpen ? "rotate(-45deg)" : "rotate(0deg)",
-                  top: isMenuOpen ? "21.5px" : "24px",
-                  left: isMenuOpen ? "2px" : "0",
+                  top: isMenuOpen ? "14.8px" : "13px",
+                  width: isMenuOpen ? '37px' : '30px',
+                  left: isMenuOpen ? "0.7px" : "0",
                 }}
               ></span>
             </div>
-            <h2 className={styles.title}>audiophile</h2>
-            <div style={{ width: "30px" }}></div>
+            {/* animation ends here */}
+            <MainLogo className={styles.logoSVG}/>
+            {/* this is to simply fix the li items spacing */}
+            {/* <div style={{ width: "90px", height: '25px' }}></div> */}
+            <div className={styles['audiophile-fix']}></div>
           </div>
-
+   
           <ul
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={styles["nav-items"]}
             style={{
               left: isMenuOpen ? "0" : "-105%",
               opacity: isMenuOpen ? "1" : "0",
             }}
           >
-            <li>home</li>
+            {/* <li>home</li>
             <li>headphones</li>
             <li>speakers</li>
-            <li>earphones</li>
+            <li>earphones</li> */}
+            <Link className={styles['nav-items-links']} to = '/' >home</Link>
+            <Link className={styles['nav-items-links']} to = '/products/headphones'>headphones</Link>
+            <Link className={styles['nav-items-links']} to = '/products/speakers'>speakers</Link>
+            <Link className={styles['nav-items-links']} to = '/products/earphones'>earphones</Link>
           </ul>
 
-          <Cart className={styles.cartForDesktop} />
+          <Cart className={styles.cart} />
         </div>
         <hr></hr>
       </div>

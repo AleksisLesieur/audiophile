@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import '../../index.css'
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className={styles.nav}>
@@ -64,9 +64,9 @@ export default function Navbar() {
             <li>speakers</li>
             <li>earphones</li> */}
             <Link className={styles['nav-items-links']} to = '/' >home</Link>
-            <Link className={styles['nav-items-links']} to = '/products/headphones'>headphones</Link>
-            <Link className={styles['nav-items-links']} to = '/products/speakers'>speakers</Link>
-            <Link className={styles['nav-items-links']} to = '/products/earphones'>earphones</Link>
+            <Link className={styles['nav-items-links']} to = '/headphones'>headphones</Link>
+            <Link className={styles['nav-items-links']} to = '/speakers'>speakers</Link>
+            <Link className={styles['nav-items-links']} to = '/earphones'>earphones</Link>
           </ul>
 
           <Cart className={styles.cart} />

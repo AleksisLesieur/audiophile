@@ -4,6 +4,7 @@ import "./App.css";
 import Footer from "./components/Footer/Footer.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import NavRouting from "./Main/Nav-items/NavRouting";
+import NavRoutingItems from "./Main/Nav-items/NavRoutingItems";
 import ProductDetails from "./Main/Products/ProductDetails";
 import HomePage from "./Main/Home/HomeComponent";
 import HomeComponent from "./Main/Home/HomeComponent";
@@ -49,18 +50,14 @@ function App(props) {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" />
-        <Route path="" element={<HomeComponent />} />
-        <Route path="/products/:product" element={<NavRouting />} />
-        <Route path="/product/:ProductID" element={<ProductDetails />} />
-        <Route
-          path="headphones"
-          element={<NavRouting loadComponent={"headphones"} />}
-        />
+        <Route path="/" element={<HomeComponent />} />
+        <Route path="/:product" element={<NavRouting />} />
+        <Route path="/details/:ProductID" element={<ProductDetails />} />
       </Routes>
       <Footer />
     </>
   );
+  // return <HomeComponent />;
   // return (
   //   <>
   //     <Navbar />

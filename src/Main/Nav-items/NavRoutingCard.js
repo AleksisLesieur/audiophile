@@ -1,16 +1,15 @@
 import styles from "./NavRouting.module.scss";
-import { BrowserRouter } from "react-router-dom";
-import { browserHistory, Router, Route, Routes } from "react-router";
-import { useParams } from "react-router";
-import { useLocation } from "react-router";
+// import { BrowserRouter } from "react-router-dom";
+// import { browserHistory, Router, Route, Routes } from "react-router";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 
-function Card({ product }) {
+function NavRoutingCard({ product }) {
+  // console.log(`console loging product in NavRouting card ${product.id}`);
   const isDesktop = useMediaQuery({ minWidth: 1160 });
-  // const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1159.9 })
   const isTablet = useMediaQuery({ minWidth: 560, maxWidth: 1159.9 });
   const isMobile = useMediaQuery({ maxWidth: 559.9 });
-  // console.log(product.categoryImage);
+
   return (
     <div
       key={product.id}
@@ -51,10 +50,13 @@ function Card({ product }) {
 
         <div className={styles.productTitle}>{product.name}</div>
         <div className={styles.description}>{product.description}</div>
-        <button>SEE PRODUCT</button>
+        <Link to={`/details/${product.id}`}>
+          <button>SEE PRODUCT</button>
+        </Link>
+        {/* <button>SEE PRODUCT</button> */}
       </article>
     </div>
   );
 }
 
-export default Card;
+export default NavRoutingCard;

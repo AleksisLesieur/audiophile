@@ -1,34 +1,42 @@
 import styles from "./Products.module.scss";
 import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
+import { NumericFormat } from "react-number-format";
+import { useState } from "react";
 
 function ProductCard({ product }) {
+  const navigate = useNavigate();
+
+  const [count, setCount] = useState(1);
+
   const isDesktop = useMediaQuery({ minWidth: 1160 });
-  // const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1159.9 })
-  const isTablet = useMediaQuery({ minWidth: 560, maxWidth: 1159.9 });
-  const isMobile = useMediaQuery({ maxWidth: 559.9 });
-  console.log(product.includes);
+  const isTablet = useMediaQuery({ minWidth: 680, maxWidth: 1159.9 });
+  const isMobile = useMediaQuery({ maxWidth: 679.9 });
+
   return (
     <div key={product.id} className={`container`}>
-      <div className={styles.GoBack}>Go Back</div>
-      <div className={styles["top-section"]}>
+      <div onClick={() => navigate(-1)} className={styles.GoBack}>
+        Go Back
+      </div>
+      <article className={styles["top-section"]}>
         <div className={styles.pictures}>
           <img
             src={`${product.image.desktop}`}
-            alt=""
+            alt={``}
             width={540}
             height={560}
             style={{ display: isDesktop ? "block" : "none" }}
           />
           <img
             src={`${product.image.tablet}`}
-            alt=""
+            alt={``}
             width={281}
             height={480}
             style={{ display: isTablet ? "block" : "none" }}
           />
           <img
             src={`${product.image.mobile}`}
-            alt=""
+            alt={``}
             width={327}
             height={327}
             style={{ display: isMobile ? "block" : "none" }}
@@ -42,33 +50,60 @@ function ProductCard({ product }) {
             New Product
           </div>
           <div className={styles.productTitle}>{product.name}</div>
-          <div className={styles.price}>{product.price}</div>
-          <div>
-            <div>this is our useState thing</div>
-            <button className={styles["btn-add-item"]}>add to cart</button>
+          <div className={styles.description}>{product.description}</div>
+          {/* <div className={styles.price}>{product.price}</div> */}
+          <div className={styles.price}>
+            <NumericFormat
+              value={product.price}
+              displayType={"text"}
+              thousandSeparator={true}
+              prefix={"$ "}
+            />
+          </div>
+          <div className={styles["cart-menu"]}>
+            <div className={styles["cart-btns"]}>
+              <button
+                disabled={count <= 1}
+                onClick={() => setCount(count - 1)}
+                className={styles["btn-count"]}
+              >
+                -
+              </button>
+              <span className={`${styles["btn-amount"]}`}>{count}</span>
+              <button
+                //  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                onClick={() => setCount(count + 1)}
+                className={styles["btn-count"]}
+              >
+                +
+              </button>
+            </div>
+            <button className={styles["btn-cart"]}>add to cart</button>
           </div>
         </div>
-      </div>
+      </article>
       <div className={styles["bottom-section"]}>
         <div className={styles["product-details"]}>
-          <div className={styles["features-title"]}>features</div>
-          <div className={styles["features-description"]}>
-            {product.features}
+          <div className={styles.titles}>features</div>
+          <div className={styles["feature-description"]}>
+            {`${product.features}`}
           </div>
         </div>
-        <div className={styles["items-quantities"]}>
-          <div className={styles.inTheBox}>in the box</div>
+        <div className={styles["quantities"]}>
+          <div className={styles.titles}>in the box</div>
           <div className={styles.contains}>
-            <span className={styles.quantity}>
-              {product.includes.map(function (element) {
-                return (
-                  <div>
-                    <span>{element.quantity}x</span>
-                    <span>{element.item}</span>
-                  </div>
-                );
-              })}
-            </span>
+            {product.includes.map(function (element) {
+              return (
+                <div key={element.id} className={styles["item-quantities"]}>
+                  <span className={styles["quantity-number"]}>
+                    {element.quantity}x
+                  </span>
+                  <span className={styles["quantity-list"]}>
+                    {element.item}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

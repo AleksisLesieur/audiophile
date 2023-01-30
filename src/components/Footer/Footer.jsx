@@ -3,6 +3,7 @@ import { ReactComponent as Facebook } from "../../icons/Facebook.svg";
 import { ReactComponent as Twitter } from "../../icons/Twitter.svg";
 import { ReactComponent as Instagram } from "../../icons/Instagram.svg";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -12,10 +13,10 @@ export default function Footer() {
           <h2>audiophile</h2>
 
           <ul className={styles.navItems}>
-            <li>home</li>
-            <li>headphones</li>
-            <li>speakers</li>
-            <li>earphones</li>
+            <Link className={styles['nav-items-links']} to = '/' >home</Link>
+            <Link className={styles['nav-items-links']} to = '/headphones'>headphones</Link>
+            <Link className={styles['nav-items-links']} to = '/speakers'>speakers</Link>
+            <Link className={styles['nav-items-links']} to = '/earphones'>earphones</Link>
           </ul>
         </div>
         <div className={`${styles.flex} ${styles.socialMediaIcons}`}>
